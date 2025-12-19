@@ -60,18 +60,8 @@ const Today = () => {
             setLoading(true);
             setError('');
 
-            const userId = localStorage.getItem('token');
-            console.log(userId)
-            if (!userId) {
-                toast.error('Please login to continue');
-                return;
-            }
-
             const response = await fetch('https://e-backend-1xjt.onrender.com/api/products', {
                 method: 'GET',
-                headers: {
-                    Authorization: userId,
-                },
             });
 
             const data = await response.json();
